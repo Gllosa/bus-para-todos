@@ -1,0 +1,21 @@
+.form {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.main-container {
+    width: 80%;
+    margin: 4rem auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: #004379;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: normal;
+}

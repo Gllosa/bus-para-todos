@@ -1,1 +1,33 @@
-<p>desplazarse-page works!</p>
+<div class="main-container">
+    <h1>Desplazarse</h1>
+    <div class="content">
+
+        <mat-card class="form">
+            <div>
+                <form [formGroup]="form" (ngSubmit)="nada()">
+        
+                    <mat-form-field  appearance="fill" style="width: 100%;">
+                        <mat-label>Origen</mat-label>
+                        <input required matInput formControlName="origin">
+                    </mat-form-field>
+                    <button mat-button style="margin: 0 1rem;">
+                        <mat-icon>compare_arrows</mat-icon>
+                    </button>
+                    <mat-form-field  appearance="fill" style="width: 100%;">
+                        <mat-label>Destino</mat-label>
+                        <input matInput formControlName="destination">
+                    </mat-form-field>
+        
+                    <!-- <mat-error *ngIf="true">Email o contraseña incorrecto</mat-error> -->
+        
+                    <button type="submit" mat-raised-button color="primary" style="margin-left: 1rem;">Buscar</button>
+                </form>
+            </div>
+            <!-- <mat-progress-bar style="margin-top: 2rem;" *ngIf="isFetching" mode="indeterminate"></mat-progress-bar> -->
+        </mat-card>
+    
+        <mat-card class="steps">
+            <h2>Pasos a seguir</h2>
+        </mat-card>
+    </div>
+</div>
