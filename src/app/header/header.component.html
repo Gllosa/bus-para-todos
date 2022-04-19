@@ -1,20 +1,44 @@
-<mat-toolbar class="main-container">
-  <mat-toolbar-row>
+<div class="main-container">
     <a routerLink="/"><img src="../../assets/favicon.png"/></a>
     <div class="links">
       <a routerLink="/desplazarse">Desplazarse</a>
       <a routerLink="/foro">Foro</a>
       <a routerLink="/soporte">Soporte</a>
     </div>
-    <span class="example-spacer"></span>
     <div class="buttons">
-      <button mat-raised-button>
+      <button mat-raised-button routerLink="/ingresar">
         INGRESAR
       </button>
-      <button mat-raised-button>
+      <button mat-raised-button routerLink="/registrarse">
        REGISTRARSE
       </button>
     </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="ham-menu">
+      <mat-icon style="color: white;">menu</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/desplazarse">
+        <mat-icon>directions_bus</mat-icon>
+        <span>Desplazarse</span>
+      </button>
+      <button mat-menu-item routerLink="/foro">
+        <mat-icon>forum</mat-icon>
+        <span>Foro</span>
+      </button>
+      <button mat-menu-item routerLink="/soporte">
+        <mat-icon>contact_support</mat-icon>
+        <span>Soporte</span>
+      </button>
+      <button mat-menu-item routerLink="/ingresar">
+        <mat-icon>person</mat-icon>
+        <span>Ingresar</span>
+      </button>
+      <button mat-menu-item routerLink="/registrarse">
+        <mat-icon>person_add</mat-icon>
+        <span>Registrarse</span>
+      </button>
+    </mat-menu>
+</div>
 

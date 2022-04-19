@@ -2,23 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 8rem;
+    margin: 12rem 0;
 }
 
 h1 {
     color: #004379;
     font-size: 60px;
     font-weight: bold;
+    line-height: normal;
+    text-align: center;
 }
 
 h2 {
     font-size: 20px;
+    line-height: normal;
+    text-align: center;
 }
 
 button {
     margin-top: 2rem;
-    width: 400px;
-    height: 80px;
+    height: 60px;
     background-color: #004379;
     color: white;
+    white-space: normal;
 }
