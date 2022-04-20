@@ -1,12 +1,12 @@
 .main-container {
     background-color: #004379;
     height: 100px;
-    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 4rem;
 }
-
+ 
 .buttons {
     display: block;
     > button{
