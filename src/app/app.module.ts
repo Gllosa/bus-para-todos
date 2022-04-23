@@ -14,11 +14,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { DesplazarsePageComponent } from './desplazarse-page/desplazarse-page.component';
+import { RouteStepComponent } from './route-step/route-step.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { DesplazarsePageComponent } from './desplazarse-page/desplazarse-page.co
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    DesplazarsePageComponent
+    DesplazarsePageComponent,
+    RouteStepComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { DesplazarsePageComponent } from './desplazarse-page/desplazarse-page.co
     MatProgressBarModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
