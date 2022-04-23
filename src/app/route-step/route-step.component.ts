@@ -6,7 +6,7 @@ import { Step } from '../interfaces/ITravel';
   templateUrl: './route-step.component.html',
   styleUrls: ['./route-step.component.scss'],
 })
-export class RouteStepComponent implements OnInit{
+export class RouteStepComponent implements OnInit {
   @Input() step: Step;
   icon: string;
   constructor() {}
@@ -14,8 +14,8 @@ export class RouteStepComponent implements OnInit{
     walk: 'directions_walk',
     busStopLocation: 'directions_bus',
     wait: 'timer',
-    getOff: 'directions_transit',
-  }
+    getOff: ' transfer_within_a_station',
+  };
 
   ngOnInit() {
     this.icon = this.icons[this.step.type];

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Step } from '../interfaces/ITravel';
+import { TravelsService } from '../services/travels.service';
 
 @Component({
   selector: 'app-desplazarse-page',
@@ -9,29 +10,36 @@ import { Step } from '../interfaces/ITravel';
 })
 export class DesplazarsePageComponent {
   form: FormGroup;
-  constructor(private fb: FormBuilder) {
+  search = false;
+  found = false;
+  fetching = false;
+  steps: Step[];
+  constructor(private fb: FormBuilder, private travelsService: TravelsService) {
     this.form = this.fb.group({
       origin: ['', Validators.required],
       destination: ['', Validators.required],
     });
   }
-  nada() {
-    console.log('hola');
-  }
-  steps: Step[] = [
-    { description: 'Dirijase a la parada de la calle no se que', type: 'walk' },
-    {
-      description: 'La parada se encuentra a la altura del número 34',
-      type: 'busStopLocation',
-    },
-    { description: 'Espere al autobús, llegará a las 12.30', type: 'wait' },
-    { description: 'Bajese en la parada "nombre parada". Quedan 5 paradas.', type: 'getOff' },
-  ];
 
-  leer_paso(paso: string) {
-    const voice = new SpeechSynthesisUtterance();
-    const jarvis = window.speechSynthesis;
-    voice.text = paso;
-    jarvis.speak(voice);
+  exchangeLocations() {
+    const origin = this.form.value.origin;
+    const destination = this.form.value.destination;
+    this.form.patchValue({
+      origin: destination,
+      destination: origin,
+    });
+  }
+
+  buscar() {
+    this.search = true;
+    this.fetching = true;
+    setTimeout(() => {
+      const travel = this.travelsService.getTravel(this.form.value.origin, this.form.value.destination)
+      if (travel) {
+        this.found = true
+        this.steps = travel.steps
+      }
+      this.fetching = false;
+    }, 1000);
   }
 }

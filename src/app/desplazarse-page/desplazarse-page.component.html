@@ -5,13 +5,13 @@
         <mat-card class="form">
             <div>
                 <h2>A dónde vamos</h2>
-                <form [formGroup]="form" (ngSubmit)="nada()">
+                <form [formGroup]="form" (ngSubmit)="buscar()">
         
                     <mat-form-field  appearance="fill" style="width: 100%; margin-bottom: 0;">
                         <mat-label>Origen</mat-label>
                         <input required matInput formControlName="origin">
                     </mat-form-field>
-                    <button mat-button style="margin-bottom: 19px;">
+                    <button type="button" mat-button style="margin-bottom: 19px;" (click)="exchangeLocations()">
                         <mat-icon>compare_arrows</mat-icon>
                     </button>
                     <mat-form-field  appearance="fill" style="width: 100%;">
@@ -19,12 +19,19 @@
                         <input matInput formControlName="destination">
                     </mat-form-field>
         
-                    <button type="submit" mat-raised-button color="primary" style="margin-left: 1rem;">Buscar</button>
+                    <button type="submit" mat-raised-button color="primary">Buscar</button>
                 </form>
             </div>
         </mat-card>
+
+       <div *ngIf="fetching">
+            Búscando la mejor ruta...
+           <mat-progress-bar mode="indeterminate" style="margin: 1rem 0;"></mat-progress-bar>
+       </div>
+
+       <h2 *ngIf="!found && search && !fetching">No hemos encontrado rutas para este trayecto</h2>
     
-        <mat-card class="steps">
+        <mat-card class="steps" *ngIf="found">
             <h2>Pasos a seguir</h2>
 
             <mat-list>
