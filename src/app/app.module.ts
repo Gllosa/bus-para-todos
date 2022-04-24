@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatChipsModule } from '@angular/material/chips';
 
 import {
   RouteStepComponent,
@@ -31,6 +33,7 @@ import {
   SoportePageComponent,
   ForoPageComponent,
 } from '@pages/index';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import {
     LoginPageComponent,
     ForoPageComponent,
     SoportePageComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,8 @@ import {
     MatDividerModule,
     MatListModule,
     MatSnackBarModule,
+    MatGridListModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

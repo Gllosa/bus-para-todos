@@ -1,4 +1,5 @@
 export interface IPost {
+  id: string
   author: string;
   title: string;
   description: string;
@@ -7,5 +8,5 @@ export interface IPost {
 
 export interface IAnswer {
   author: string;
-  description: string;
+  answer: string;
 }

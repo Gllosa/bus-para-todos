@@ -15,6 +15,7 @@ export class ForoPageComponent implements OnInit {
   async ngOnInit() {
     this.posts = await this.postsService.getPosts();
     this.posts = this.posts.concat(this.posts);
+    this.posts = this.posts.concat(this.posts);
+    console.log(this.posts[0])
   }
-
 }

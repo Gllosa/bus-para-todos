@@ -1,6 +1,6 @@
-import { IPost } from './../interfaces/IPost';
+import { IPost, IAnswer } from './../interfaces/IPost';
 import { Injectable } from '@angular/core';
-import { collection, doc, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, doc, getDocs, getDoc, getFirestore, updateDoc, arrayUnion } from 'firebase/firestore';
 import { environment } from '../../environments/environment';
 
 const db = getFirestore(environment.app);
@@ -16,9 +16,22 @@ export class PostsService {
   async getPosts() {
     const querySnap = await getDocs(this.postsCollection);
     const posts: IPost[] = [];
-    querySnap.forEach(doc => 
-      posts.push(doc.data() as IPost)
-    )
+    querySnap.forEach(doc => {
+      posts.push({...doc.data() as IPost, id: doc.id});
+    });
     return posts;
+  }
+
+  async getPostById(id: string) {
+    const docRef = doc(db, 'posts', id);
+    const docSnap = await getDoc(docRef);
+    return docSnap.data() as IPost;
+  }
+
+  async addResponseToPost(postId: string, answer: IAnswer) {
+    const docRef = doc(db, 'posts', postId);
+    await updateDoc(docRef, {
+      answers: arrayUnion(answer),
+    })
   }
 }

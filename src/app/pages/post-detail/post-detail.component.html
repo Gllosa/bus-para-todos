@@ -1,0 +1,10 @@
+<div class="main-container">
+  <h1>{{post?.title}}</h1>
+  <p>{{post?.description}}</p>
+
+  <h2>Respuestas</h2>
+  <div class="answer" *ngFor="let answer of post?.answers">
+    <p>{{answer.author}}</p>
+    <p>{{answer.answer}}</p>
+  </div>
+</div>

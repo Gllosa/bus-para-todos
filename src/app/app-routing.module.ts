@@ -7,6 +7,7 @@ import {
   LoginPageComponent,
   ForoPageComponent,
   SoportePageComponent,
+  PostDetailComponent,
 } from '@pages/index';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'registrarse', component: SignupPageComponent },
   { path: 'ingresar', component: LoginPageComponent },
   { path: 'foro', component: ForoPageComponent },
-  { path: 'soporte', component: SoportePageComponent }
+  { path: 'soporte', component: SoportePageComponent },
+  { path: 'foro/:id', component: PostDetailComponent },
 ];
 
 @NgModule({

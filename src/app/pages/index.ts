@@ -1,3 +1,4 @@
+export { PostDetailComponent } from './post-detail/post-detail.component';
 export { HomeComponent } from './home/home.component';
 export { DesplazarsePageComponent } from './desplazarse-page/desplazarse-page.component';
 export { SignupPageComponent } from './signup-page/signup-page.component';
