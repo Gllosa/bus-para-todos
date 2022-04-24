@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { FirebaseError } from 'firebase/app';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   User,
   signInWithEmailAndPassword,
-  ErrorFn,
   UserCredential,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from 'firebase/auth';
 
 @Injectable({
@@ -20,6 +20,7 @@ export class AuthService {
     }
   }
   user: User | null = null;
+  provider = new GoogleAuthProvider();
 
   async signUp(email: string, password: string): Promise<UserCredential> {
     try {
@@ -54,6 +55,18 @@ export class AuthService {
     }
 
     return this.user;
+  }
+
+  async signInWithGoogle () {
+    try {
+      const auth = getAuth();
+      const result = await signInWithPopup(auth, this.provider);
+      this.user = result.user;
+      localStorage.setItem('user', JSON.stringify(this.user));
+    } catch (error) {
+      console.log(error)
+    }
+    return this.user
   }
 
   isLoggedIn() {

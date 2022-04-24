@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -17,7 +18,8 @@ export class LoginPageComponent {
     public authService: AuthService,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.form = this.fb.group({
       email: ['', Validators.required],
@@ -34,7 +36,7 @@ export class LoginPageComponent {
       this._snackBar.open(`Bienvenido de nuevo ${email}`, 'Cerrar', {
         duration: 2000,
       });
-      this.router.navigate(['/']);
+      this.location.back()
     } catch (error) {
       this.isFetching = false;
       this._snackBar.open('Email o contraseña incorrectos', 'Cerrar', {
@@ -43,5 +45,13 @@ export class LoginPageComponent {
       this.form.reset();
       this.isLoginFailed = true;
     }
+  }
+
+  async loginWithGoogle() {
+    const user = await this.authService.signInWithGoogle();
+    this._snackBar.open(`Bienvenido de nuevo ${user?.displayName}`, 'Cerrar', {
+      duration: 2000,
+    });
+    this.location.back()
   }
 }
