@@ -1,1 +1,15 @@
-<p>foro-page works!</p>
+<div class="main-container">
+  <div class="header">
+    <h1>Foro</h1>
+    <button mat-raised-button>Crear Post</button>
+  </div>
+  
+  <mat-card *ngFor="let post of posts" class="card">
+    <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
+    <mat-card-title>{{post.title}}</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <p>{{post.description}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

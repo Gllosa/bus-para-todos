@@ -1,4 +1,6 @@
+import { IPost } from './../../interfaces/IPost';
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-foro-page',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForoPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public postsService: PostsService) { }
+  posts: IPost[] = []
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.posts = await this.postsService.getPosts();
+    this.posts = this.posts.concat(this.posts);
   }
 
 }
