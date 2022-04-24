@@ -1,6 +1,6 @@
 <div class="main-container">
-  <form [formGroup]="form" (ngSubmit)="registrarse()" class="form">
-      <h1>Registrarse</h1>
+  <form [formGroup]="form" (ngSubmit)="ingresar()" class="form">
+      <h1>Ingresar</h1>
       <div class="fields">
         <mat-form-field class="field">
             <mat-label>Email</mat-label>
@@ -13,10 +13,8 @@
         </mat-form-field>
       </div>
 
-      <a routerLink="/ingresar">¿Ya estas registrado? Iniciar sesión.</a>
+      <a routerLink="/registrarse">¿Aún no te has registrado? Registrarse.</a>
 
-      <mat-error *ngIf="form.get('email')?.errors?.['email']">Email incorrecto.</mat-error>
-
-      <button type="submit" mat-raised-button color="primary">Registrarse</button>
+      <button type="submit" mat-raised-button color="primary">Ingresar</button>
     </form>
 </div>

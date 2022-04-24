@@ -24,14 +24,26 @@
     }
 }
 
+p {
+    margin-right: 12px;
+    color: white;
+    font-size: 18px;
+}
+
 .ham-menu {
     display: none;
+}
+
+.loggedIn {
+    display: flex;
+    align-items: center;
 }
 
 img {
     height: 80px; 
     width: auto;
 }
+
 @media screen and (max-width: 768px) {
     .buttons{
         display: hidden;
@@ -46,4 +58,9 @@ img {
     .buttons {
         display: none;
     }
+
+    .loggedIn {
+        display: none;
+    }
+
 }

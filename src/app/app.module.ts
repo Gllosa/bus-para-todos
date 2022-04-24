@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DesplazarsePageComponent } from './desplazarse-page/desplazarse-page.component';
 import { RouteStepComponent } from './route-step/route-step.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     FooterComponent,
     DesplazarsePageComponent,
     RouteStepComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

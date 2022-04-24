@@ -5,12 +5,19 @@
       <a routerLink="/foro">Foro</a>
       <a routerLink="/soporte">Soporte</a>
     </div>
-    <div class="buttons">
+    <div class="buttons" *ngIf="!authService.isLoggedIn()">
       <button mat-raised-button routerLink="/ingresar">
         INGRESAR
       </button>
       <button mat-raised-button routerLink="/registrarse">
        REGISTRARSE
+      </button>
+    </div>
+
+    <div *ngIf="authService.isLoggedIn()" class="loggedIn">
+      <p style="margin-bottom: 0;">¡Bienvenido {{user?.email}}!</p>
+      <button mat-raised-button (click)="logout()">
+        Cerrar sesión
       </button>
     </div>
 
@@ -31,13 +38,17 @@
         <mat-icon>contact_support</mat-icon>
         <span>Soporte</span>
       </button>
-      <button mat-menu-item routerLink="/ingresar">
+      <button mat-menu-item routerLink="/ingresar" [ngStyle]="{'display': !authService.isLoggedIn() ? 'block' : 'none'}">
         <mat-icon>person</mat-icon>
         <span>Ingresar</span>
       </button>
-      <button mat-menu-item routerLink="/registrarse">
+      <button mat-menu-item routerLink="/registrarse" [ngStyle]="{'display': !authService.isLoggedIn() ? 'block' : 'none'}">
         <mat-icon>person_add</mat-icon>
         <span>Registrarse</span>
+      </button>
+      <button mat-menu-item [ngStyle]="{'display': authService.isLoggedIn() ? 'block' : 'none'}" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Cerrar sesión</span>
       </button>
     </mat-menu>
 </div>
