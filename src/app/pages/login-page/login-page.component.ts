@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -49,9 +49,11 @@ export class LoginPageComponent {
 
   async loginWithGoogle() {
     const user = await this.authService.signInWithGoogle();
-    this._snackBar.open(`Bienvenido de nuevo ${user?.displayName}`, 'Cerrar', {
-      duration: 2000,
-    });
-    this.location.back()
+    if (user) {
+      this._snackBar.open(`Bienvenido de nuevo ${user?.displayName}`, 'Cerrar', {
+        duration: 2000,
+      });
+      this.location.back()
+    }
   }
 }

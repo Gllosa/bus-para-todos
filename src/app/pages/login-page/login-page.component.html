@@ -21,5 +21,7 @@
       <a routerLink="/registrarse">¿Aún no te has registrado? Registrarse.</a>
 
       <button type="submit" mat-raised-button color="primary">Ingresar</button>
+
+      <mat-progress-bar *ngIf="isFetching" mode="indeterminate" style="margin: 1rem 0;"></mat-progress-bar>
     </form>
 </div>

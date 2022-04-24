@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,17 +13,24 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
-import { DesplazarsePageComponent } from './desplazarse-page/desplazarse-page.component';
-import { RouteStepComponent } from './route-step/route-step.component';
-import { SignupPageComponent } from './signup-page/signup-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import {
+  RouteStepComponent,
+  HeaderComponent,
+  FooterComponent,
+} from '@components/index';
+
+import {
+  HomeComponent,
+  DesplazarsePageComponent,
+  SignupPageComponent,
+  LoginPageComponent,
+  SoportePageComponent,
+  ForoPageComponent,
+} from '@pages/index';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     DesplazarsePageComponent,
     RouteStepComponent,
     SignupPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ForoPageComponent,
+    SoportePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,9 +61,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     MatInputModule,
     MatDividerModule,
     MatListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

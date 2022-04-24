@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Step } from '../interfaces/ITravel';
+import { Step } from 'src/app/interfaces/ITravel';
 
 @Component({
   selector: 'app-route-step',

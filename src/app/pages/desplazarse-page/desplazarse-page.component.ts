@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Step } from '../interfaces/ITravel';
-import { TravelsService } from '../services/travels.service';
+import { Step } from '../../interfaces/ITravel';
+import { TravelsService } from '../../services/travels.service';
 
 @Component({
   selector: 'app-desplazarse-page',
