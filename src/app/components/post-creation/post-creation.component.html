@@ -2,21 +2,22 @@
   <form [formGroup]="form" (ngSubmit)="post()" class="form">
       <h1>Crear Post</h1>
       <div class="fields">
-        <mat-form-field class="field">
+        <mat-form-field class="field" appearance="fill">
           <mat-label>Nombre (aparecerá junto con su pregunta)</mat-label>
           <input required matInput formControlName="nickname">
         </mat-form-field>
-        <mat-form-field class="field">
+        <mat-form-field class="field"  appearance="fill">
             <mat-label>Título de la pregunta</mat-label>
             <input required matInput formControlName="title">
         </mat-form-field>
 
-        <mat-form-field class="field">
+        <mat-form-field class="field"  appearance="fill">
             <mat-label>Descripción</mat-label>
-            <input matInput formControlName="desc">
+            <textarea matInput formControlName="description" style="resize: none;" rows="4"></textarea>
         </mat-form-field>
       </div>
 
-      <button type="submit" mat-raised-button color="primary">Guardar</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="fetching">Guardar</button>
+      <mat-progress-bar *ngIf="fetching" mode="indeterminate" style="margin-top: 1rem;"></mat-progress-bar>
     </form>
 </div>

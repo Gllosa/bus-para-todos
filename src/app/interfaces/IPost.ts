@@ -10,3 +10,9 @@ export interface IAnswer {
   author: string;
   answer: string;
 }
+
+export interface IPostPayload {
+  author: string
+  description: string
+  title: string
+}

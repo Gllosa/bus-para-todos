@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FirebaseError } from 'firebase/app';
-import { AuthService } from 'src/app/services/auth.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-post-creation',
@@ -15,31 +15,38 @@ export class PostCreationComponent {
   constructor(
     public dialogref: MatDialogRef<PostCreationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public authService: AuthService,
+    public postsService: PostsService,
     fb: FormBuilder,
     private _snackBar: MatSnackBar,
     public router: Router
   ) {
     this.form = fb.group({
-      title: ['', Validators.email],
+      title: ['', Validators.required],
       description: ['', Validators.required],
       nickname: ['', Validators.required],
     });
   }
 
   form: FormGroup;
+  fetching = false
 
   async post() {
+    if (!this.form.valid) return;
     try {
-      const { email, password } = this.form.value;
-      const response = await this.authService.signUp(email, password);
-      if (response) {
-        this._snackBar.open('Usuario registrado correctamente', 'Cerrar', {
-          duration: 2000,
-        });
-        this.router.navigate(['/']);
-      }
+      const { nickname, description, title } = this.form.value;
+      this.fetching = true;
+      await this.postsService.addPost({
+        author: nickname,
+        description,
+        title,
+      });
+      this.fetching = false
+      this._snackBar.open('Post creado correctamente', 'Cerrar', {
+        duration: 2000,
+      });
+      window.location.reload()
     } catch (error) {
+      console.log(error)
       this.form.reset();
       if (error instanceof FirebaseError) {
         this._snackBar.open(error.message, 'Cerrar', {
