@@ -1,0 +1,41 @@
+@import '../../_constants';
+
+h1 {
+  color: $main-color;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+}
+
+a {
+  display: block;
+  color: $main-color;
+  margin: 0.5rem 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .field {
+    width: 200px;
+  }
+}

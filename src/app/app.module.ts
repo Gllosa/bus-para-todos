@@ -18,11 +18,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import {
   RouteStepComponent,
   HeaderComponent,
   FooterComponent,
+  PostCreationComponent
 } from '@components/index';
 
 import {
@@ -32,8 +34,8 @@ import {
   LoginPageComponent,
   SoportePageComponent,
   ForoPageComponent,
+  PostDetailComponent,
 } from '@pages/index';
-import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { PostDetailComponent } from './pages/post-detail/post-detail.component';
     ForoPageComponent,
     SoportePageComponent,
     PostDetailComponent,
+    PostCreationComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { PostDetailComponent } from './pages/post-detail/post-detail.component';
     MatListModule,
     MatSnackBarModule,
     MatGridListModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
