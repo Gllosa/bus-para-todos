@@ -1,27 +1,22 @@
 # PrototipoBusParaTodos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+[Web desplegada](https://bus-para-todos.web.app/)
 
-## Development server
+Prototipo para la asignatura de diseño de sistemas interactivos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Ejecutar
 
-## Code scaffolding
+Para levantar el proyecto basta con ejecutar:
+- :hammer: `npm run i`
+- :rocket: `npm run start`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Página de desplazarse
+Está página no hace uso de datos reales. Si se quiere probar hay un viaje mockeado: 
+```javascript
+  {
+    origen: 'casa de la cultura',
+    destino: 'uc3m colmenarejo'
+  }
+```
+## Página de foro
+Si el usuario se loguea al comentar en el foro saldrá su nombre, de lo contrario saldrá como anónimo
