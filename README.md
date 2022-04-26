@@ -14,7 +14,7 @@ Para levantar el proyecto basta con ejecutar:
 Está página no hace uso de datos reales. Si se quiere probar hay un viaje mockeado: 
 ```javascript
   {
-    origen: 'casa de la cultura',
+    origen: 'casa de la cultura, torrelodones',
     destino: 'uc3m colmenarejo'
   }
 ```
