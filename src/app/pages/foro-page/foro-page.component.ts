@@ -12,9 +12,11 @@ import { PostCreationComponent } from '@components/index';
 export class ForoPageComponent implements OnInit {
   constructor(public postsService: PostsService, public dialog: MatDialog) {}
   posts: IPost[] = [];
-
+  fetching = false
   async ngOnInit() {
+    this.fetching = true
     this.posts = await this.postsService.getPosts();
+    this.fetching = false
   }
 
   openDialog() {
